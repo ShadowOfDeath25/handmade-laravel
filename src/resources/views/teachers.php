@@ -29,13 +29,13 @@
         <select class="form-select form-select-lg mb-3" name="classroom" aria-label="Default select example">
             <option selected>Choose your classroom</option>
 
-            <?php foreach ($classrooms as $classroom): ?>
+            <?php foreach ($relatedData["classrooms"] as $classroom): ?>
                 <option value="<?= $classroom->id ?>"><?= $classroom->name ?></option>
             <?php endforeach; ?>
         </select>
         <select class="form-select form-select-lg mb-5" name="subject" aria-label="Default select example">
             <option selected>Choose your subject</option>
-            <?php foreach ($subjects as $subject): ?>
+            <?php foreach ($relatedData["subjects"] as $subject): ?>
                 <option value="<?= $subject->id ?>"><?= $subject->name ?></option>
             <?php endforeach; ?>
         </select>
@@ -57,7 +57,7 @@
         </thead>
         <tbody>
             <?php
-            foreach ($teachers as $item) {
+            foreach ($items as $item) {
                 ?>
                 <tr>
                     <td><?= $item->id ?></td>

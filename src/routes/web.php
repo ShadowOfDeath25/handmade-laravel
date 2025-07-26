@@ -26,6 +26,7 @@ Router::get("/logout", AuthController::class . "@logout");
 
 //Student Routes
 Router::get("/", StudentController::class . "@index");
+Router::get("/students", StudentController::class . "@index");
 Router::post('/student/create', StudentController::class . "@store");
 Router::get("/student/delete/{id}", StudentController::class . "@destroy");
 Router::post("/student/edit/{id}", StudentController::class . "@update");

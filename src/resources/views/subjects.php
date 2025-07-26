@@ -18,7 +18,7 @@
             </thead>
             <tbody>
                 <?php
-                foreach ($subjects as $item) {
+                foreach ($items as $item) {
                     ?>
                     <tr>
                         <td><?= $item->id ?></td>

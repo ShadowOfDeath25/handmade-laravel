@@ -1,10 +1,6 @@
-<?php
 
-use App\Database\Models\Student;
-use App\Http\Controllers\StudentController;
-
-?>
 <?php require_once __DIR__ . "/components/navbar.php" ?>
+
 <div class="custom-container">
     <?php if (isset($_SESSION["msg"])): ?>
         <div class="container">
@@ -35,7 +31,7 @@ use App\Http\Controllers\StudentController;
         <select class="form-select form-select-lg mb-5" name="classroom" aria-label="Default select example">
             <option selected>Choose your classroom</option>
 
-            <?php foreach ($classrooms as $classroom): ?>
+            <?php foreach ($relatedData["classrooms"] as $classroom): ?>
                 <option value="<?= $classroom->id ?>"><?= $classroom->name ?></option>
             <?php endforeach; ?>
         </select>
@@ -56,7 +52,7 @@ use App\Http\Controllers\StudentController;
         </thead>
         <tbody>
             <?php
-            foreach ($students as $item) {
+            foreach ($items as $item) {
                 ?>
                 <tr>
                     <td><?= $item->id ?></td>

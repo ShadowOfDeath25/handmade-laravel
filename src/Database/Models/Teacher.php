@@ -8,6 +8,19 @@ class Teacher extends Model
 {
     protected static $table = "teachers";
     protected static $primaryKey = "id";
+    protected static $modelName = "Teacher";
+    protected static $relations = [
+        "subject" => Subject::class,
+        "classroom" => Classroom::class
+    ];
+    protected static $fillable = [
+        "first_name",
+        "last_name",
+        "email",
+        "subject",
+        "age",
+        "classroom"
+    ];
 
     public function subject()
     {

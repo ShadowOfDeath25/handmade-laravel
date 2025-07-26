@@ -7,16 +7,36 @@ use App\Database\Database;
 use Exception;
 use PDOException;
 
-class Model
+abstract class Model
 {
     protected static $table;
+    protected static $modelName;
     protected static $primaryKey = 'id';
+    protected static $fillable = [];
+    protected static $relations = [];
     protected $attributes = [];
+
 
     public function __construct($attributes = [])
     {
         $this->attributes = $attributes;
     }
+
+    public static function getModelName()
+    {
+        return static::$modelName;
+    }
+
+    public static function getFillable()
+    {
+        return static::$fillable;
+    }
+
+    public static function getRelations()
+    {
+        return static::$relations;
+    }
+
 
     public static function find($id)
     {

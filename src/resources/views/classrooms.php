@@ -16,7 +16,7 @@ use App\Http\Controllers\StudentController;
     <?php endif; ?>
     <form class="container" method="POST" action="/classroom/create">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingFirstName" name="name" placeholder="Stars">
+            <input type="text" class="form-control" id="floatingName" name="name" placeholder="Stars">
             <label for="floatingName">Name</label>
         </div>
         <div class="form-floating mb-3">
@@ -39,7 +39,7 @@ use App\Http\Controllers\StudentController;
         </thead>
         <tbody>
             <?php
-            foreach ($classrooms as $item) {
+            foreach ($items as $item) {
                 ?>
                 <tr>
                     <td><?= $item->id ?></td>
