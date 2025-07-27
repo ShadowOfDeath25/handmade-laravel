@@ -80,6 +80,18 @@ class AuthController
             exit();
         }
     }
+
+    public static function renderLoginView()
+    {
+        self::initSession();
+        require_once "../resources/views/login.php";
+    }
+
+    public static function renderRegisterView()
+    {
+        self::initSession();
+        require_once "../resources/views/register.php";
+    }
 }
 
 ?>

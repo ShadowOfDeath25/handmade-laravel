@@ -15,7 +15,7 @@ abstract class ResourceController
     {
         $relatedData = [];
         foreach (static::$model::getRelations() as $key => $model) {
-            $relatedData[$key."s"] = $model::all();
+            $relatedData[$key . "s"] = $model::all();
 
         }
         AuthController::checkAuth();
@@ -100,6 +100,23 @@ abstract class ResourceController
         ];
     }
 
+    public static function renderEditView($id)
+    {
+        AuthController::checkAuth();
+        $data = static::show($id);
+        $relatedData = [];
+        foreach (static::$model::getRelations() as $key => $model) {
+            $relatedData[$key . "s"] = $model::all();
+        }
+        if ($data['status']) {
+            $item = $data['data'];
+            require static::$editViewPath;
+        } else {
+            $_SESSION['msg'] = $data['message'];
+            header("Location:/" . strtolower(static::$model::getModelName()) . "s");
+            exit();
+        }
+    }
 }
 
 
