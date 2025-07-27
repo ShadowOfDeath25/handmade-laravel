@@ -1,4 +1,3 @@
-
 <?php require_once __DIR__ . "/components/navbar.php" ?>
 
 <div class="custom-container">
@@ -31,7 +30,7 @@
         <select class="form-select form-select-lg mb-5" name="classroom" aria-label="Default select example">
             <option selected>Choose your classroom</option>
 
-            <?php foreach ($relatedData["classrooms"] as $classroom): ?>
+            <?php foreach ($classrooms as $classroom): ?>
                 <option value="<?= $classroom->id ?>"><?= $classroom->name ?></option>
             <?php endforeach; ?>
         </select>
@@ -52,7 +51,7 @@
         </thead>
         <tbody>
             <?php
-            foreach ($items as $item) {
+            foreach ($students as $item) {
                 ?>
                 <tr>
                     <td><?= $item->id ?></td>

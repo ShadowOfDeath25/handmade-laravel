@@ -39,21 +39,21 @@ use App\Http\Controllers\StudentController;
         </thead>
         <tbody>
             <?php
-            foreach ($items as $item) {
+            foreach ($classrooms as $classroom) {
                 ?>
                 <tr>
-                    <td><?= $item->id ?></td>
-                    <td><?= $item->name ?? "-"; ?></td>
-                    <td><?= $item->floor ?? "-"; ?></td>
-                    <td> <?= $item->creator() ?></td>
+                    <td><?= $classroom->id ?></td>
+                    <td><?= $classroom->name ?? "-"; ?></td>
+                    <td><?= $classroom->floor ?? "-"; ?></td>
+                    <td> <?= $classroom->creator() ?></td>
                     <td>
 
 
-                        <a href=/classroom/delete/<?= $item->id ?>" class="btn btn-danger">Delete</a>
+                        <a href=/classroom/delete/<?= $classroom->id ?>" class="btn btn-danger">Delete</a>
 
                     </td>
                     <td>
-                        <a href="/classroom/edit/<?= $item->id ?>" class="btn btn-primary">Edit</a>
+                        <a href="/classroom/edit/<?= $classroom->id ?>" class="btn btn-primary">Edit</a>
                     </td>
                 </tr>
                 <?php

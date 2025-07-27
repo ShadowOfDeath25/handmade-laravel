@@ -29,13 +29,13 @@
         <select class="form-select form-select-lg mb-3" name="classroom" aria-label="Default select example">
             <option selected>Choose your classroom</option>
 
-            <?php foreach ($relatedData["classrooms"] as $classroom): ?>
+            <?php foreach ($classrooms as $classroom): ?>
                 <option value="<?= $classroom->id ?>"><?= $classroom->name ?></option>
             <?php endforeach; ?>
         </select>
         <select class="form-select form-select-lg mb-5" name="subject" aria-label="Default select example">
             <option selected>Choose your subject</option>
-            <?php foreach ($relatedData["subjects"] as $subject): ?>
+            <?php foreach ($subjects as $subject): ?>
                 <option value="<?= $subject->id ?>"><?= $subject->name ?></option>
             <?php endforeach; ?>
         </select>
@@ -57,23 +57,23 @@
         </thead>
         <tbody>
             <?php
-            foreach ($items as $item) {
+            foreach ($teachers as $teacher) {
                 ?>
                 <tr>
-                    <td><?= $item->id ?></td>
-                    <td><?= $item->first_name ?? "-"; ?></td>
-                    <td><?= $item->last_name ?? "-"; ?></td>
-                    <td><?= $item->email ?? "-"; ?></td>
-                    <td><?= $item->age ?? "-"; ?></td>
-                    <td><?= $item->subject() ?? "-"; ?></td>
-                    <td><?= $item->classroom() ?? "-"; ?></td>
+                    <td><?= $teacher->id ?></td>
+                    <td><?= $teacher->first_name ?? "-"; ?></td>
+                    <td><?= $teacher->last_name ?? "-"; ?></td>
+                    <td><?= $teacher->email ?? "-"; ?></td>
+                    <td><?= $teacher->age ?? "-"; ?></td>
+                    <td><?= $teacher->subject() ?? "-"; ?></td>
+                    <td><?= $teacher->classroom() ?? "-"; ?></td>
                     <td>
 
-                        <a href=/teachers/delete/<?= $item->id ?>" class="btn btn-danger">Delete</a>
+                        <a href=/teachers/delete/<?= $teacher->id ?>" class="btn btn-danger">Delete</a>
 
                     </td>
                     <td>
-                        <a href="/teachers/edit/<?= $item->id ?>" class="btn btn-primary">Edit</a>
+                        <a href="/teachers/edit/<?= $teacher->id ?>" class="btn btn-primary">Edit</a>
                     </td>
                 </tr>
                 <?php

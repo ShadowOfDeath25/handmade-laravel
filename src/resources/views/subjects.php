@@ -18,17 +18,17 @@
             </thead>
             <tbody>
                 <?php
-                foreach ($items as $item) {
+                foreach ($subjects as $subject) {
                     ?>
                     <tr>
-                        <td><?= $item->id ?></td>
-                        <td><?= $item->name ?? "-"; ?></td>
+                        <td><?= $subject->id ?></td>
+                        <td><?= $subject->name ?? "-"; ?></td>
 
                         <td>
-                            <a href=/subjects/delete/<?= $item->id ?>" class="btn btn-danger">Delete</a>
+                            <a href=/subjects/delete/<?= $subject->id ?>" class="btn btn-danger">Delete</a>
                         </td>
                         <td>
-                            <a href="/subjects/edit/<?= $item->id ?>" class="btn btn-primary">Edit</a>
+                            <a href="/subjects/edit/<?= $subject->id ?>" class="btn btn-primary">Edit</a>
                         </td>
                     </tr>
                     <?php

@@ -16,10 +16,13 @@ abstract class ResourceController
         $relatedData = [];
         foreach (static::$model::getRelations() as $key => $model) {
             $relatedData[$key . "s"] = $model::all();
+            $key = $key . 's';
+            $$key = $model::all();
 
         }
         AuthController::checkAuth();
-        $items = static::$model::all();
+        $variableName = strtolower(static::$model::getModelName()) . 's';
+        $$variableName = static::$model::all();
         require static::$viewPath;
     }
 
@@ -106,10 +109,12 @@ abstract class ResourceController
         $data = static::show($id);
         $relatedData = [];
         foreach (static::$model::getRelations() as $key => $model) {
-            $relatedData[$key . "s"] = $model::all();
+            $variableName = $key . 's';
+            $$variableName = $model::all();
         }
         if ($data['status']) {
-            $item = $data['data'];
+            $variableName = strtolower(static::$model::getModelName());
+            $$variableName = $data['data'];
             require static::$editViewPath;
         } else {
             $_SESSION['msg'] = $data['message'];
